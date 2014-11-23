@@ -24,7 +24,7 @@ def get_song_lyrics(data):
 def get_prim_artist(data):
     return json.dumps(data["response"]["song"]["primary_artist"]["name"])[1:-1]
 
-def get_feat__artist(data):
+def get_feat_artist(data):
     farts= []
     for i in data["response"]["song"]["featured_artists"]:
         farts.append(json.dumps(i["name"])[1:-1])
