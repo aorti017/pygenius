@@ -1,10 +1,14 @@
 import urllib2
 import json
 
+
 def get_song_data(id):
     json_data = urllib2.urlopen("http://api.rapgenius.com/songs/" + str(id))
     data = json.loads(json_data.read())
     return data
+
+def get_song_name(data):
+    return data["response"]["song"]["title"]
 
 def get_song_lyrics(data):
     lyrics = []
@@ -30,4 +34,16 @@ def get_feat_artist(data):
         farts.append(json.dumps(i["name"])[1:-1])
     return farts
 
+def get_artist_data(id):
+    json_data = urllib2.urlopen("http://api.rapgenius.com/artists/" + str(id))
+    data = json.loads(json_data.read())
+    return data
 
+def get_artist_description(data):
+    try:
+        return data["response"]["artist"]["description"]["dom"]["children"][0]["children"][0]
+    except KeyError:
+        return ""
+
+def get_artist_name(data):
+    return data["response"]["artist"]["name"]
