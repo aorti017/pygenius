@@ -4,7 +4,7 @@ PyGenius
 Program Overview
 ----------
 PyGenius is an API that can be used to access that data available at
-http://rapgenius.com by utilizing their private API.
+http://rap.genius.com by utilizing their private API.
 
 Classes
 ---------
