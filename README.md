@@ -15,7 +15,7 @@ artist(artist id):
 
 song(song id):
     - name (string)
-    - lyrics(arrya of strings)
+    - lyrics(array of strings)
     - primary_artist(string)
     - featured_artists(array of strings)
 ```
