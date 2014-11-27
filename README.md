@@ -21,7 +21,7 @@ song(song id):
 ```
 Usage
 ----------
-Examples usages of the API can be found in ```src/example.py```
+Example usage of the API can be found in ```src/example.py```
 
 Bugs/Limitations
 ---------
