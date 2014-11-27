@@ -19,6 +19,9 @@ song(song id):
     - primary_artist(string)
     - featured_artists(array of strings)
 ```
+Usage
+----------
+Examples usages of the API can be found in ```src/example.py```
 
 Bugs/Limitations
 ---------
