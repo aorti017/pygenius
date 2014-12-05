@@ -14,11 +14,14 @@ artist(artist id):
     - description(string)
     - songs(array of strings)
 song(song id):
-    - name (string)
+    - name(string)
     - lyrics(array of strings)
     - primary_artist(string)
     - featured_artists(array of strings)
 ```
+Usage
+----------
+Example usage of the API can be found in ```src/example.py```
 
 Bugs/Limitations
 ---------

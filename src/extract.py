@@ -1,7 +1,7 @@
 import urllib2
 import json
 
-
+#gets the json data for the corresponding song id
 def get_song_data(id):
     try:
         json_data = urllib2.urlopen("http://api.rapgenius.com/songs/" + str(id))
@@ -9,12 +9,14 @@ def get_song_data(id):
         return None
     data = json.loads(json_data.read())
     return data
-
+    
+#gets the song title
 def get_song_name(data):
     if(data == None):
         return
     return data["response"]["song"]["title"]
 
+#parses the data for the song's lyrics
 def get_song_lyrics(data):
     lyrics = []
     if(data == None):
@@ -33,11 +35,13 @@ def get_song_lyrics(data):
                     lyrics.append(x)
     return lyrics
 
+#gets the primary artists
 def get_prim_artist(data):
     if(data == None):
         return
     return json.dumps(data["response"]["song"]["primary_artist"]["name"])[1:-1]
 
+#parses the data for the featured artists
 def get_feat_artist(data):
     fearts= []
     if(data == None):
@@ -47,6 +51,7 @@ def get_feat_artist(data):
         fearts.append(json.dumps(i["name"])[1:-1])
     return fearts
 
+#gets the json data for the corresponding artist id
 def get_artist_data(id):
     try:
         json_data = urllib2.urlopen("http://api.rapgenius.com/artists/" + str(id))
@@ -60,6 +65,7 @@ def get_artist_data(id):
     dataSong = json.loads(json_data.read())
     return data, dataSong
 
+#gets the artist's description if available
 def get_artist_description(data):
     if(data == None):
         return None
@@ -68,6 +74,7 @@ def get_artist_description(data):
     except KeyError:
         return None
 
+#gets the artist's name
 def get_artist_name(data):
     if(data == None):
         return None
