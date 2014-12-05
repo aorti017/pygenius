@@ -3,15 +3,23 @@ import json
 
 
 def get_song_data(id):
-    json_data = urllib2.urlopen("http://api.rapgenius.com/songs/" + str(id))
+    try:
+        json_data = urllib2.urlopen("http://api.rapgenius.com/songs/" + str(id))
+    except urllib2.HTTPError:
+        return None
     data = json.loads(json_data.read())
     return data
 
 def get_song_name(data):
+    if(data == None):
+        return
     return data["response"]["song"]["title"]
 
 def get_song_lyrics(data):
     lyrics = []
+    if(data == None):
+        lyrics.append(None)
+        return lyrics
     for i in data["response"]["song"]["lyrics"]["dom"]["children"][0]["children"]:
         if("children" not in i):
             if(json.dumps(i) != '{"tag": "br"}' and i != ' '):
@@ -26,24 +34,50 @@ def get_song_lyrics(data):
     return lyrics
 
 def get_prim_artist(data):
+    if(data == None):
+        return
     return json.dumps(data["response"]["song"]["primary_artist"]["name"])[1:-1]
 
 def get_feat_artist(data):
-    farts= []
+    fearts= []
+    if(data == None):
+        fearts.append(None)
+        return fearts
     for i in data["response"]["song"]["featured_artists"]:
-        farts.append(json.dumps(i["name"])[1:-1])
-    return farts
+        fearts.append(json.dumps(i["name"])[1:-1])
+    return fearts
 
 def get_artist_data(id):
-    json_data = urllib2.urlopen("http://api.rapgenius.com/artists/" + str(id))
+    try:
+        json_data = urllib2.urlopen("http://api.rapgenius.com/artists/" + str(id))
+    except urllib2.HTTPError:
+        return None, None
     data = json.loads(json_data.read())
-    return data
+    try:
+        json_data = urllib2.urlopen("http://api.rapgenius.com/artists/" + str(id) + "/songs")
+    except urllib2.HTTPError:
+        return data, None
+    dataSong = json.loads(json_data.read())
+    return data, dataSong
 
 def get_artist_description(data):
+    if(data == None):
+        return None
     try:
         return data["response"]["artist"]["description"]["dom"]["children"][0]["children"][0]
     except KeyError:
-        return ""
+        return None
 
 def get_artist_name(data):
+    if(data == None):
+        return None
     return data["response"]["artist"]["name"]
+
+def get_artist_songs(song_data):
+    songs = []
+    if(song_data == None):
+        songs.append(None)
+        return songs
+    for i in song_data["response"]["songs"]:
+        songs.append(i["title"])
+    return songs

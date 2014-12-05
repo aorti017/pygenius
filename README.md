@@ -12,7 +12,7 @@ Classes
 artist(artist id):
     - name(string)
     - description(string)
-
+    - songs(array of strings)
 song(song id):
     - name (string)
     - lyrics(array of strings)
@@ -25,3 +25,4 @@ Bugs/Limitations
 * Languages other than English are omitted and replaced by the
   language surrounded by ```{}```
 * Due to annotations, line  are sometimes spliced.
+* Currently the "songs" attibute of the artist class only contatins the title of the track and not the tracks id.

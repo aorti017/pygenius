@@ -4,11 +4,11 @@ import artist
 #Bambu's Golden Era Shower
 #s = song.song(489522)
 
-#Blue Scholar's Sagab
-#s = song.song(3893)
-
 #Cool Calm Pete's 2 A.M.
-s = song.song(255949)
+#s = song.song(255949)
+
+#Blue Scholar's Sagab
+s = song.song(3893)
 
 #prints the song title
 print s.name
@@ -27,10 +27,18 @@ for i in s.featured_artists:
 #Bambu
 #a = artist.artist(12246)
 
-#Blue Scholars
-#a = artist.artist(544)
-
 #Cool Calm Pete
-a = artist.artist(12283)
+#a = artist.artist(12283)
+
+#Blue Scholars
+a = artist.artist(544)
+
+#prints artist's name
 print a.name
+
+#prints artist's description if available
 print a.description
+
+#prints the artist's songs
+for i in a.songs:
+    print i
