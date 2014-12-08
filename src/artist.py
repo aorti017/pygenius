@@ -6,4 +6,3 @@ class artist:
         self.name = extract.get_artist_name(data)
         self.description = extract.get_artist_description(data)
         self.songs = extract.get_artist_songs(song_data)
-        #to be added: search
