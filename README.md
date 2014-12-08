@@ -3,7 +3,7 @@ PyGenius
 
 Program Overview
 ----------
-PyGenius is an API that can be used to access that data available at
+PyGenius is a library that can be used to access that data available at
 http://rap.genius.com by utilizing their private API.
 
 Classes
@@ -21,7 +21,7 @@ song(song id):
 ```
 Usage
 ----------
-Example usage of the API can be found in ```./example.py```
+Example usage of the library can be found in ```./example.py```
 
 Bugs/Limitations
 ---------
