@@ -41,3 +41,7 @@ print a.description
 #prints the artist's songs
 for i in a.songs:
     print i
+
+results = search_song("weight is gone")
+for i in results:
+    print i + ": " + str(results[i])
