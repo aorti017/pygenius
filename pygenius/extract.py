@@ -10,7 +10,7 @@ def get_song_data(id):
         return None
     data = json.loads(json_data.read())
     return data
-    
+
 #gets the song title
 def get_song_name(data):
     if(data == None):
@@ -25,7 +25,8 @@ def get_song_lyrics(data):
         return lyrics
     for i in data["response"]["song"]["lyrics"]["dom"]["children"][0]["children"]:
         if("children" not in i):
-            if(json.dumps(i) != '{"tag": "br"}' and i != ' '):
+            if(json.dumps(i) != '{"tag": "br"}' and
+                json.dumps(i) != '{"tag": "i"}' and i != ' '):
                 if(i[0] == ' '):
                     lyrics.append(i[1:])
                 else:
@@ -53,7 +54,7 @@ def get_feat_artist(data):
     return fearts
 
 #gets the json data for the corresponding artist id and that artists songs
-#if not avaible None is returned 
+#if not avaible None is returned
 def get_artist_data(id):
     try:
         json_data = urllib2.urlopen("http://api.rapgenius.com/artists/" + str(id))
