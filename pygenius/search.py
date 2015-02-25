@@ -8,8 +8,12 @@ def search_song(title):
         "http://api.rapgenius.com/search?q=" + str(title)
         ).read()
     data = json.loads(search_result)
-    results = {}
+    greatest = 0
+    sim_title = ""
     for i in data["response"]["hits"]:
-        results[i["result"]["title"]] = i["result"]["id"]
-    return results
-
+        sim = difflib.SequenceMatcher(
+                a=title.lower(),b=i["result"]["title"].lower()).ratio()
+        if(sim >= greatest):
+                sim_title = i["result"]["title"]
+                greatest = sim
+    return sim_title
