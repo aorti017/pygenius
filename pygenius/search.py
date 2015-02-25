@@ -11,8 +11,7 @@ def search_song(title):
     greatest = 0
     sim_title = ""
     for i in data["response"]["hits"]:
-        sim = difflib.SequenceMatcher(
-                a=title.lower(),b=i["result"]["title"].lower()).ratio()
+        sim = difflib.SequenceMatcher(a=title.lower(),b=i["result"]["title"].lower()).ratio()
         if(sim >= greatest):
                 sim_title = i["result"]["title"]
                 greatest = sim
