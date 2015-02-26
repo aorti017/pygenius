@@ -42,6 +42,6 @@ print a.description
 for i in a.songs:
     print i
 
+#search for the song "Weight is Gone by Intuition & Equalibrum"
 results = search_song("weight is gone")
-for i in results:
-    print i + ": " + str(results[i])
+print results
