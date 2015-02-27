@@ -23,6 +23,8 @@ print s.primary_artist
 for i in s.featured_artists:
     print i
 
+print "----------"
+
 #Bambu
 #a = artist.artist(12246)
 
@@ -42,6 +44,9 @@ print a.description
 for i in a.songs:
     print i
 
+print "----------"
+
 #search for the song "Weight is Gone by Intuition & Equalibrum"
-results = search_song("weight is gone")
-print results
+result = search_song("weight is gone")
+print result.name
+print result.primary_artist
