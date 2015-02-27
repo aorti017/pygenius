@@ -19,6 +19,14 @@ song(song id):
     - primary_artist(string)
     - featured_artists(array of strings)
 ```
+
+Functions
+---------
+```
+search_song(query):
+    - returns a song object for the result most like the query
+```
+
 Usage
 ----------
 Example usage of the library can be found in ```./example.py```
