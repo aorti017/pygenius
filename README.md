@@ -37,3 +37,4 @@ Bugs/Limitations
   language surrounded by ```{}```
 * Due to annotations, line  are sometimes spliced.
 * Currently the "songs" attibute of the artist class only contatins the title of the track and not the tracks id.
+* extract.py now throws IndexError when extracting lyrics.
