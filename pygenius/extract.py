@@ -20,15 +20,14 @@ def get_song_name(data):
 #parses the data for the song's lyrics
 def get_song_lyrics(data):
     lyrics = []
+    check = ['', '{"tag": "br"}', '{"tag": "i"}']
     if(data == None):
         lyrics.append(None)
         return lyrics
     for i in data["response"]["song"]["lyrics"]["dom"]["children"][0]["children"]:
         if("children" not in i):
-            if(json.dumps(i) != '{"tag": "br"}' and
-                json.dumps(i) != '{"tag": "i"}' and i != ' '):
-                if(i != ''):
-                    lyrics.append(i)
+            if(json.dumps(i) not in check and i != '' and i != ' '):                
+	        lyrics.append(i)
         else:
             for x in i["children"]:
                 if(json.dumps(x) != '{"tag": "br"}'):
