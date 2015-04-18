@@ -27,9 +27,7 @@ def get_song_lyrics(data):
         if("children" not in i):
             if(json.dumps(i) != '{"tag": "br"}' and
                 json.dumps(i) != '{"tag": "i"}' and i != ' '):
-                if(i[0] == ' '):
-                    lyrics.append(i[1:])
-                else:
+                if(i != ''):
                     lyrics.append(i)
         else:
             for x in i["children"]:
