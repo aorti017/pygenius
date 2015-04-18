@@ -16,6 +16,10 @@ print s.name
 for i in s.lyrics:
     print i
 
+#concatenate the lyrics into one string
+str = cat_lyrics(s)
+print str
+
 #prints primary artist
 print s.primary_artist
 
