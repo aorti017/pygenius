@@ -8,7 +8,7 @@ PyGenius
 Program Overview
 ----------
 PyGenius is a library that can be used to access that data available at
-http://rap.genius.com by utilizing their private API.
+http://rap.genius.com by utilizing their API.
 
 Classes
 ---------
@@ -41,4 +41,4 @@ Bugs/Limitations
   language surrounded by ```{}```
 * Due to annotations, line  are sometimes spliced.
 * Currently the "songs" attibute of the artist class only contatins the title of the track and not the tracks id.
-* extract.py now throws IndexError when extracting lyrics.
+* The overall project is no longer functional because of updates to the Genius api.
