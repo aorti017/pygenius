@@ -1,6 +1,6 @@
 ATTENTION
 ==========
-Due to updates concerning the api utilized by this project development has tentatively ceased. 
+Due to updates concerning the api utilized by this project, development and support have tentatively ceased. 
 
 PyGenius
 ==========
